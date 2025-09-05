@@ -1,0 +1,9 @@
+SELECT County_of_Residence, EXTRACT(YEAR FROM year) AS year, Births
+FROM `bigquery-public-data.sdoh_cdc_wonder_natality.county_natality` 
+WHERE CAST(EXTRACT(YEAR FROM year) AS INT64) BETWEEN 2016 AND 2018
+  AND County_of_Residence IN ('Erie County, NY','Niagara County, NY', 'Chautauqua County, NY')
+ORDER BY Births DESC
+
+
+## Orders Most to Least Births from 2016 - 2018 in Countries: Erie, Niagara, Chautauqua 
+## I learned that since year is a date, so need to cast to change the type to integer since 2016 and 2018 are both integers 
