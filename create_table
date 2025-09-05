@@ -1,0 +1,7 @@
+CREATE TABLE trips_over_1_hour AS (
+  SELECT * 
+  FROM `bigquery-public-data.new_york.citibike_trips`
+  WHERE tripduration <= 3600 
+)
+
+## Create a new permanent table in the database for trips under 1 hour 
