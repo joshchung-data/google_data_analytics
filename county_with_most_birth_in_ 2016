@@ -1,0 +1,13 @@
+
+## Question: This code will find the top 3 countries with the most births in 2016
+## Answer: LA county had the most births at 123,092
+
+
+SELECT
+year, county_of_residence, births 
+FROM
+bigquery-public-data.sdoh_cdc_wonder_natality.county_natality
+WHERE CAST(EXTRACT(YEAR FROM Year) AS INT64) = 2016
+ORDER BY Births DESC
+LIMIT 3
+
