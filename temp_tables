@@ -1,0 +1,11 @@
+WITH trips_over_1_hour AS (
+  SELECT *
+  FROM `bigquery-public-data.new_york.citibike_trips`
+  WHERE tripduration >= 3600
+)
+
+## Count the trips over 1 hour 
+
+SELECT 
+  COUNT(*) AS number  
+FROM trips_over_1_hour
