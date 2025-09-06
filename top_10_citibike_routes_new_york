@@ -1,0 +1,14 @@
+## Problem: Find the top 10 most popular routes with the average duration in minutes taken by customers and subscribers in New York 
+## What I learned: the order of select will change the order of the columns, make sure you reference the columns in group by and not the aliases 
+
+SELECT 
+  usertype,
+  COUNT(*) AS num_trips,
+  CONCAT(start_station_name," to ", end_station_name) AS route,
+  ROUND(AVG(tripduration/60), 2) AS avg_duration
+FROM `bigquery-public-data.new_york.citibike_trips`
+GROUP BY 
+  start_station_name, end_station_name, usertype 
+ORDER BY 
+  num_trips DESC
+LIMIT 10 
