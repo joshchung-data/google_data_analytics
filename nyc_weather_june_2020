@@ -1,0 +1,11 @@
+
+## Problem: Finds the average temperature in NYC during June 2020 
+## Answer: The average temperature was 72.88 
+
+
+SELECT EXTRACT(MONTH FROM date) AS month, AVG(temperature) AS temp
+FROM `velvety-glazing-468219-t9.demos.nyc_weather` 
+WHERE 
+  CAST(EXTRACT(MONTH FROM date) AS int64) = 6
+GROUP BY 
+  month
