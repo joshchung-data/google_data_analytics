@@ -1,0 +1,18 @@
+## Problem: IN 2015, how many people were of official age for secondary education by region of the world?
+## Given: 2 tables = international_education and country_summary 
+## Do a join for both: LEFT JOIN with international_education as anchor so primary key will be international_education.country_code 
+## Country_summary.region has a lot of NULL values, so I filtered out all the NULL values 
+## make sure any columns in SELECT is either in GROUP BY or SELECT 
+
+
+
+SELECT summary.region, SUM(edu.value) AS secondary_population 
+FROM `bigquery-public-data.world_bank_intl_education.international_education` AS edu
+  LEFT JOIN 
+       `bigquery-public-data.world_bank_intl_education.country_summary` AS summary 
+    ON edu.country_code = summary.country_code 
+WHERE summary.region IS NOT null
+  AND edu.year = 2015 
+  AND edu.indicator_name = 'Population of the official age for secondary education, both sexes (number)'
+GROUP BY summary.region 
+ORDER BY secondary_population DESC
