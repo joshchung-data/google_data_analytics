@@ -1,0 +1,13 @@
+## How to JOIN tables and identify primary and foreign keys 
+## LEFT JOIN, RIGHT JOIN, INNER JOIN 
+## 1. Understand your anchor table and set it as left table, then primary keys come from that 
+## 2. When writing the code 
+##    FROM sales             |  it means sales left join customer, so sales is the anchor table and customer 
+##    LEFT JOIN customer     |  will join matching rows 
+##    FROM customer          |  this produces the same table as LEFT JOIN but in reverse order, customer right joins sales 
+##    RIGHT JOIN sales       |  so sales is the anchor table still and customer joins the matching rows 
+##      ON sales.cust_id = customer.cust_id  | since sales is the anchor then sales.cust_id is the primary key 
+##    focus on join (inner join) and left join 
+##    FROM sales                                   |   the anchor table is customer because sales joins on the right, so 
+##    JOIN customer                                |   primary key is customer.cust_id 
+##      ON customer.cust_id = sales.cust_id        |
