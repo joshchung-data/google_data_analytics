@@ -1,0 +1,16 @@
+
+
+Link to excel to a payroll table:    https://1drv.ms/x/c/40ee775bc0b0d828/EVg11Dt4qalNji2Chfn-w7UBTlRL74jDfIlbXIXt_YtxxA?e=a64Kn9
+
+Things I learned: 
+- VLOOKUP 
+-PIVOT TABLE
+
+Steps I took: 
+1. clean up data with TRIM 
+2. use VALUE or paste to copy values to another cell 
+3. use SUM to calculate total hours per worker 
+4. use PRODUCT to take the product or could have use * instead 
+5. use VLOOKUP to took the hourly pay for each worker from another sheet 
+  VLOOKUP for a value on another sheet: VLOOKUP(B2, Sheet2!$A$2:$F$6, 4, false) 
+  VLOOKUP for a value on the same sheet: VLOOKUP(B2, A2:F6, 9, false) 
